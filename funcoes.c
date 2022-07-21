@@ -116,6 +116,10 @@ contato_t lerNovoRegistro()
     printf("\t---Vôlei: ");
     scanf("%f", &novoRegistro.esportes.volei);
 
+    novoRegistro.grupo = 0;
+    
+    novoRegistro.excluido = FALSE;
+    
     return novoRegistro;
 }
 
