@@ -41,6 +41,8 @@ int calcularQuantidadeRegistros(FILE* arquivoEntrada);
 
 void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros);
 
+contato_t lerNovoRegistro();
+
 int buscarRegistro(contato_t* const agenda, int quantidadeRegistros);
 
 void editarRegistro(contato_t* agenda, int quantidadeRegistros);
