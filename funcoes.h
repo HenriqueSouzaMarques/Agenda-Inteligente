@@ -1,3 +1,6 @@
+#ifndef FUNCOES_H
+#define FUNCOES_H
+
 #define TAMANHO_MAXIMO_NOME 100
 
 #define BOOL char
@@ -28,7 +31,7 @@ typedef struct contato_t_
     int grupo;
     BOOL excluido;
 } contato_t;
- 
+
 
 int menu();
 
@@ -52,3 +55,6 @@ void ordenarRegistros(contato_t* agenda, int quantidadeRegistros);
 void agruparRegistros(contato_t* agenda, int quantidadeRegistros);
 
 void exportarRegistros(contato_t* agenda, int quantidadeRegistros); 
+
+
+#endif

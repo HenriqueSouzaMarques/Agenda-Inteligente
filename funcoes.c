@@ -26,17 +26,97 @@ int menu()
 
 contato_t* lerRegistros(int* quantidadeRegistros)
 {
-    return;
+    FILE* arquivoEntrada = fopen("dados.dat", "rb");
+
+    if(arquivoEntrada == NULL)
+    {
+        printf("Erro ao abrir arquivo para leitura de dados!\n");
+        return NULL;
+    }
+
+    *quantidadeRegistros = calcularQuantidadeRegistros(arquivoEntrada);
+
+    contato_t* listaContatos = (contato_t*)malloc((*quantidadeRegistros) * sizeof(contato_t));
+
+    if(listaContatos == NULL)
+    {
+        printf("Erro ao alocar memória para os contatos!\n");
+        fclose(arquivoEntrada);
+        return NULL;
+    }
+
+    int nLidos = fread(listaContatos, sizeof(contato_t), *quantidadeRegistros, arquivoEntrada);
+
+    if(nLidos != *quantidadeRegistros)
+    {
+        printf("Erro na leitura do arquivo de dados!\n");
+        fclose(arquivoEntrada);
+        free(listaContatos);
+        return NULL;
+    }
+
+    fclose(arquivoEntrada);
+
+    return listaContatos;
 }
 
 int calcularQuantidadeRegistros(FILE* arquivoEntrada)
 {
-    return;
+    int quantidadeRegistros;
+
+    fseek(arquivoEntrada, 0, SEEK_END);
+
+    quantidadeRegistros = ftell(arquivoEntrada) / sizeof(contato_t);
+
+    rewind(arquivoEntrada);
+
+    return quantidadeRegistros;
 }
 
 void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
 {
-    return;
+    contato_t novoRegistro = lerNovoRegistro();
+
+    (*quantidadeRegistros)++;
+
+    contato_t *maisContatos = (contato_t*)realloc(*agenda, *quantidadeRegistros);
+
+    if(maisContatos == NULL)
+    {
+        printf("Erro ao inserir novo contato!\n");
+        free(agenda);
+        exit(1);
+    }
+
+    *agenda = maisContatos;
+
+    *agenda[*quantidadeRegistros - 1] = novoRegistro; 
+}
+
+contato_t lerNovoRegistro()
+{
+    contato_t novoRegistro;
+
+    printf("Insira o nome: ");
+    scanf("%s", novoRegistro.nomeCompleto);
+
+    printf("Insira a cidade: ");
+    scanf("%s", novoRegistro.cidade);
+
+    printf("Insira a Unidade Federativa (sigla): ");
+    scanf("%s", novoRegistro.UF);
+
+    printf("Insira os gostos por esportes (0 a 10): \n");
+    printf("\t---Futebol: ");
+    scanf("%f", &novoRegistro.esportes.futebol);
+
+    printf("\t---Basquete: ");
+    scanf("%f", &novoRegistro.esportes.basquete);
+
+    printf("\t---Vôlei: ");
+    scanf("%f", &novoRegistro.esportes.volei);
+
+    return novoRegistro;
 }
 
 int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
