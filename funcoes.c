@@ -79,7 +79,8 @@ void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
 
     (*quantidadeRegistros)++;
 
-    contato_t *maisContatos = (contato_t*)realloc(*agenda, *quantidadeRegistros);
+    contato_t *maisContatos = NULL;
+    maisContatos = (contato_t*)realloc(*agenda, *quantidadeRegistros);
 
     if(maisContatos == NULL)
     {
