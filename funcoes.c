@@ -24,6 +24,8 @@ int menu()
     return opcao; 
 }
 
+/* Lê registros gravados no arquivo binário "dados.dat" */
+/* Retorna um vetor na heap com todos os registros lidos */
 contato_t* lerRegistros(int* quantidadeRegistros)
 {
     FILE* arquivoEntrada = fopen("dados.dat", "rb");
@@ -60,6 +62,7 @@ contato_t* lerRegistros(int* quantidadeRegistros)
     return listaContatos;
 }
 
+/* Retorna a quantidade de registros em um arquivo a partir do seu tamanho */
 int calcularQuantidadeRegistros(FILE* arquivoEntrada)
 {
     int quantidadeRegistros;
@@ -73,9 +76,19 @@ int calcularQuantidadeRegistros(FILE* arquivoEntrada)
     return quantidadeRegistros;
 }
 
+/* Adiciona um registro no vetor com todos os registros */
 void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
 {
     contato_t novoRegistro = lerNovoRegistro();
+
+    for(int i = 0; i < *quantidadeRegistros; ++i)
+    {
+        if(*agenda[i].excluido)
+        {
+            *agenda[i] = novoRegistro;
+            return;
+        }
+    }
 
     (*quantidadeRegistros)++;
 
@@ -94,6 +107,7 @@ void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
     *agenda[*quantidadeRegistros - 1] = novoRegistro; 
 }
 
+/* Lê um novo registro do usuário */
 contato_t lerNovoRegistro()
 {
     contato_t novoRegistro;

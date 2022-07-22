@@ -6,7 +6,7 @@
 int main()
 {
     int opcao;
-    int quantidadeRegistros;
+    int quantidadeRegistros = 0;
     contato_t* agenda;
 
     do
