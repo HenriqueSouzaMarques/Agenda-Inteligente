@@ -83,7 +83,7 @@ void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
 
     for(int i = 0; i < *quantidadeRegistros; ++i)
     {
-        if(*agenda[i].excluido)
+        if((*agenda[i]).excluido)
         {
             *agenda[i] = novoRegistro;
             return;
