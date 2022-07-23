@@ -1,5 +1,5 @@
 #ifndef BUSCAS_H
-#define BUSCAR_H
+#define BUSCAS_H
 
 #include <stdio.h>
 #include <stdlib.h>
