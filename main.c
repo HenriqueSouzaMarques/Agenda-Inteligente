@@ -9,7 +9,7 @@ int main()
 {
     int opcao;
     int quantidadeRegistros = 0;
-    contato_t* agenda;
+    contato_t* agenda = NULL;
 
     do
     {
