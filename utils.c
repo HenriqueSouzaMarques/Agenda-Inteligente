@@ -155,7 +155,6 @@ void editarRegistro(contato_t* agenda, int quantidadeRegistros)
 
 void excluirRegistro(contato_t* agenda, int quantidadeRegistros)
 {
-    int opcao = menuBusca();
     int posicaoRegistro = buscarRegistro(agenda, quantidadeRegistros);
 
     if(posicaoRegistro == -1)
