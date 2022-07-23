@@ -24,7 +24,7 @@ int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
             break;
 
         default:
-            printf("Registro não encontrado!\n");
+            printf("Insira uma opção válida!\n");
             return -1;
             break;
     }
@@ -47,6 +47,7 @@ int buscarNome(contato_t* const agenda, int quantidadeRegistros)
         }
     }
 
+    printf("Registro não encontrado!\n");
     return -1;
 }
 
@@ -71,6 +72,7 @@ int buscarData(contato_t* const agenda, int quantidadeRegistros)
         }
     }
 
+    printf("Registro não encontrado!\n");
     return -1;
 }
 
