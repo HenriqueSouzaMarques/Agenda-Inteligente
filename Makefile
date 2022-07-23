@@ -1,10 +1,13 @@
 all: main
 
-main: main.c funcoes.h funcoes.o
-	gcc -o main main.c funcoes.o -lm
+main: main.c utils.h utils.o buscas.h buscas.o contato.h
+	gcc -o main main.c utils.o buscas.o -lm
 
-funcoes.o: funcoes.c funcoes.h
-	gcc -c funcoes.c
+utils.o: utils.c utils.h contato.h
+	gcc -c utils.c
+
+buscas.o: buscas.c buscas.h
+	gcc -c buscas.c
 
 clean:
 	rm *.o
