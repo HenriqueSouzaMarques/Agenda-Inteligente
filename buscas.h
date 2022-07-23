@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "utils.h"
 #include "contato.h"
 
 /* Retorna posição do registro de interesse */

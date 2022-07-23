@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "buscas.h"
-#include "utils.h"
 
 int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
 {
