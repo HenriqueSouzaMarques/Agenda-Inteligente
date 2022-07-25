@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "utils.h"
-#include "contato.h"
-#include "buscas.h"
+#include "Includes/utils.h"
+#include "Includes/contato.h"
+#include "Includes/buscas.h"
 
 int menu()
 {
@@ -151,11 +151,6 @@ contato_t lerNovoRegistro()
     return novoRegistro;
 }
 
-void editarRegistro(contato_t* agenda, int quantidadeRegistros)
-{
-    return;
-}
-
 void excluirRegistro(contato_t* agenda, int quantidadeRegistros)
 {
     int posicaoRegistro = buscarRegistro(agenda, quantidadeRegistros);
@@ -198,11 +193,11 @@ void printarRegistro(contato_t* agenda, int posicaoRegistro)
         printf("\tFutebol: %.2f\n", agenda[posicaoRegistro].esportes.futebol);
         printf("\tBasquete: %.2f\n", agenda[posicaoRegistro].esportes.basquete);
         printf("\tVôlei: %.2f\n", agenda[posicaoRegistro].esportes.volei);
-        printf("Grupo: %d\n", agenda[posicaoRegistro].grupo);
+        printf("Grupo: %d\n\n\n", agenda[posicaoRegistro].grupo);
     }
     else
     {
-        printf("Contato Excluído!\n");
+        printf("%s foi excluído da sua agenda recentemente!\n\n\n", agenda[posicaoRegistro].nomeCompleto);
     }
 }
 

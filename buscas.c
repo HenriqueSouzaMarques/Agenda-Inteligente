@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "buscas.h"
+#include "Includes/buscas.h"
 
 int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
 {
@@ -33,7 +33,7 @@ int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
 
 int buscarNome(contato_t* const agenda, int quantidadeRegistros)
 {
-        char nomeProcurado[TAMANHO_MAXIMO_NOME];
+    char nomeProcurado[TAMANHO_MAXIMO_NOME];
 
     printf("Digitar o nome ou parte do nome:\n");
     scanf("%s", nomeProcurado);
@@ -46,7 +46,7 @@ int buscarNome(contato_t* const agenda, int quantidadeRegistros)
         }
     }
 
-    printf("Registro não encontrado!\n");
+    printf("Registro não encontrado!\n\n\n");
     return -1;
 }
 
@@ -71,7 +71,7 @@ int buscarData(contato_t* const agenda, int quantidadeRegistros)
         }
     }
 
-    printf("Registro não encontrado!\n");
+    printf("Registro não encontrado!\n\n\n");
     return -1;
 }
 

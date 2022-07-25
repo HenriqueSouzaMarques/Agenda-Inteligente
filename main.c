@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "contato.h"
-#include "utils.h"
-#include "buscas.h"
+#include "Includes/contato.h"
+#include "Includes/utils.h"
+#include "Includes/edicao.h"
+#include "Includes/buscas.h"
 
 int main()
 {
