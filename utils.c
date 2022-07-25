@@ -85,17 +85,19 @@ void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
 
     for(int i = 0; i < *quantidadeRegistros; ++i)
     {
-        if((*agenda[i]).excluido)
+        if((*agenda)[i].excluido)
         {
-            *agenda[i] = novoRegistro;
+            (*agenda)[i] = novoRegistro;
             return;
         }
     }
 
     (*quantidadeRegistros)++;
+    printf("Quantidade de registros %d\n", *quantidadeRegistros);
 
-    contato_t *maisContatos = NULL;
-    maisContatos = (contato_t*)realloc(*agenda, *quantidadeRegistros);
+    contato_t* maisContatos = NULL;
+
+    maisContatos = (contato_t*)realloc(*agenda, (*quantidadeRegistros) * sizeof(contato_t));
 
     if(maisContatos == NULL)
     {
@@ -106,7 +108,8 @@ void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
 
     *agenda = maisContatos;
 
-    *agenda[*quantidadeRegistros - 1] = novoRegistro; 
+    (*agenda)[*quantidadeRegistros - 1] = novoRegistro; 
+
 }
 
 /* Lê um novo registro do usuário */
@@ -176,6 +179,33 @@ void agruparRegistros(contato_t* agenda, int quantidadeRegistros)
     return;
 }
 
+void printarRegistro(contato_t* agenda, int posicaoRegistro)
+{
+    if(posicaoRegistro == -1)
+    {
+        return;
+    }
+
+    if(!agenda[posicaoRegistro].excluido)
+    {
+        printf("Nome: %s\n", agenda[posicaoRegistro].nomeCompleto);
+        printf("Cidade: %s, %s\n", agenda[posicaoRegistro].cidade, agenda[posicaoRegistro].UF);
+        printf("Nascimento: %02d/%02d/%d\n", 
+                agenda[posicaoRegistro].dataNascimento.dia, 
+                agenda[posicaoRegistro].dataNascimento.mes, 
+                agenda[posicaoRegistro].dataNascimento.ano);
+        printf("Prefências esportivas: \n");
+        printf("\tFutebol: %.2f\n", agenda[posicaoRegistro].esportes.futebol);
+        printf("\tBasquete: %.2f\n", agenda[posicaoRegistro].esportes.basquete);
+        printf("\tVôlei: %.2f\n", agenda[posicaoRegistro].esportes.volei);
+        printf("Grupo: %d\n", agenda[posicaoRegistro].grupo);
+    }
+    else
+    {
+        printf("Contato Excluído!\n");
+    }
+}
+
 void exportarRegistros(contato_t* agenda, int quantidadeRegistros)
 {
     FILE* arquivoSaida = fopen(NOME_ARQUIVO, "wb");
@@ -191,5 +221,4 @@ void exportarRegistros(contato_t* agenda, int quantidadeRegistros)
 
     fclose(arquivoSaida);
 
-    return;
 }

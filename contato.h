@@ -31,7 +31,7 @@ typedef struct contato_t_
 {
     char nomeCompleto[TAMANHO_MAXIMO_NOME];
     char cidade[TAMANHO_MAXIMO_NOME];
-    char UF[2];
+    char UF[3];
     preferencias_t esportes;
     data_t dataNascimento;
     int grupo;

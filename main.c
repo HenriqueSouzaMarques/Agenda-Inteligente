@@ -7,6 +7,7 @@
 
 int main()
 {
+    int posicaoRegistro;
     int opcao;
     int quantidadeRegistros = 0;
     contato_t* agenda = NULL;
@@ -34,7 +35,8 @@ int main()
                 break;
 
             case 5:
-                buscarRegistro(agenda, quantidadeRegistros);
+                posicaoRegistro = buscarRegistro(agenda, quantidadeRegistros);
+                printarRegistro(agenda, posicaoRegistro);
                 break;
 
             case 6:

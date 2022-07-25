@@ -25,6 +25,8 @@ void ordenarRegistros(contato_t* agenda, int quantidadeRegistros);
     /* Por data */
     /* Por grupo */
 
+void printarRegistro(contato_t* agenda, int posicaoRegistro);
+
 void agruparRegistros(contato_t* agenda, int quantidadeRegistros);
 
 void exportarRegistros(contato_t* agenda, int quantidadeRegistros); 

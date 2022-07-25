@@ -1,7 +1,7 @@
 all: main
 
 main: main.c utils.h utils.o buscas.h buscas.o contato.h
-	gcc -o main main.c utils.o buscas.o -lm
+	gcc -g -o main main.c utils.o buscas.o -lm
 
 utils.o: utils.c utils.h contato.h
 	gcc -c utils.c
