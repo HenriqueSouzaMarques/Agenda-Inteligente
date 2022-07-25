@@ -1,8 +1,6 @@
 #ifndef EDICAO_H
 #define EDICAO_H
 
-#include <stdio.h>
-
 #include "contato.h"
 
 void editarNome(contato_t* agenda, int posicaoRegistro);

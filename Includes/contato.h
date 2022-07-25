@@ -1,9 +1,6 @@
 #ifndef CONTATO_H
 #define CONTATO_H
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #define TAMANHO_MAXIMO_NOME 100
 
 #define NOME_ARQUIVO "dados.dat"
