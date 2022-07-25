@@ -93,7 +93,6 @@ void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
     }
 
     (*quantidadeRegistros)++;
-    printf("Quantidade de registros %d\n", *quantidadeRegistros);
 
     contato_t* maisContatos = NULL;
 
@@ -112,7 +111,7 @@ void cadastrarRegistro(contato_t** agenda, int* quantidadeRegistros)
 
 }
 
-/* Lê um novo registro do usuário */
+/* Lê um novo registro do usuário, retornando-o */
 contato_t lerNovoRegistro()
 {
     contato_t novoRegistro;
@@ -151,6 +150,7 @@ contato_t lerNovoRegistro()
     return novoRegistro;
 }
 
+/* Altera o campo "excluído" para TRUE */
 void excluirRegistro(contato_t* agenda, int quantidadeRegistros)
 {
     int posicaoRegistro = buscarRegistro(agenda, quantidadeRegistros);
@@ -174,6 +174,7 @@ void agruparRegistros(contato_t* agenda, int quantidadeRegistros)
     return;
 }
 
+/* Printa um registro em formatação adequada */
 void printarRegistro(contato_t* agenda, int posicaoRegistro)
 {
     if(posicaoRegistro == -1)
@@ -201,6 +202,7 @@ void printarRegistro(contato_t* agenda, int posicaoRegistro)
     }
 }
 
+/* Exporta atual lista de contatos para o arquivo "dados.dat" */
 void exportarRegistros(contato_t* agenda, int quantidadeRegistros)
 {
     FILE* arquivoSaida = fopen(NOME_ARQUIVO, "wb");

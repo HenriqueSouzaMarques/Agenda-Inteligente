@@ -5,6 +5,7 @@
 #include "Includes/contato.h"
 #include "Includes/buscas.h"
 
+
 void editarRegistro(contato_t* agenda, int quantidadeRegistros)
 {
     int posicaoRegistro = buscarRegistro(agenda, quantidadeRegistros);

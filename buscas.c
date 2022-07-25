@@ -4,6 +4,7 @@
 
 #include "Includes/buscas.h"
 
+/* Busca um registro pelo seu: (i) Nome; (ii) Data de Nascimento ou (iii) Grupo */
 int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
 {
     int opcao = menuBusca();
@@ -31,6 +32,7 @@ int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
     return posicaoRegistro;
 }
 
+/* Caso o nome procurado seja substring de um dos contatos da lista, retorna sua posição */
 int buscarNome(contato_t* const agenda, int quantidadeRegistros)
 {
     char nomeProcurado[TAMANHO_MAXIMO_NOME];
@@ -50,6 +52,7 @@ int buscarNome(contato_t* const agenda, int quantidadeRegistros)
     return -1;
 }
 
+/* Caso a data de nascimento procurada coincida com a de algum registro, retornar a posição do registro */
 int buscarData(contato_t* const agenda, int quantidadeRegistros)
 {
     int dia, mes, ano;
