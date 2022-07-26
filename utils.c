@@ -118,10 +118,11 @@ contato_t lerNovoRegistro()
     contato_t novoRegistro;
 
     printf("Insira o nome: ");
-    scanf("%s", novoRegistro.nomeCompleto);
+    scanf("%*c");
+    scanf("%[^\n]%*c", novoRegistro.nomeCompleto);
 
     printf("Insira a cidade: ");
-    scanf("%s", novoRegistro.cidade);
+    scanf("%[^\n]%*c", novoRegistro.cidade);
 
     printf("Insira a Unidade Federativa (sigla): ");
     scanf("%s", novoRegistro.UF);
