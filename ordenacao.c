@@ -30,23 +30,27 @@ void ordenarRegistros(contato_t* agenda, int quantidadeRegistros)
 
 void ordenarNome(contato_t* agenda, int quantidadeRegistros)
 {
-    int indexLetraAtual;
+    int indexLetraDiferente;
 
+    /* Aplicando Bubble Sort, critério: nome completo */
     for(int i = 0; i < quantidadeRegistros; ++i)
     {
         for(int j = 0; j < quantidadeRegistros - 1 - i; ++j)
         {
-            indexLetraAtual = 0;
+            indexLetraDiferente = 0;
 
             if(strcmp(agenda[j].nomeCompleto, agenda[j + 1].nomeCompleto) != 0)
             {
-                while(agenda[j].nomeCompleto[indexLetraAtual] == agenda[j + 1].nomeCompleto[indexLetraAtual])
+                /* While loop para encontrar a primeira letra diferente */
+                while(agenda[j].nomeCompleto[indexLetraDiferente] == agenda[j + 1].nomeCompleto[indexLetraDiferente])
                 {
-                    indexLetraAtual++;
+                    indexLetraDiferente++;
                 }
             }       
 
-            if(agenda[j].nomeCompleto[indexLetraAtual] > agenda[j + 1].nomeCompleto[indexLetraAtual])
+            /* Se a primeira letra que difere do registro "j" for menor 
+             * que do registro "j + 1" (tabela ASCII), trocar registros */
+            if(agenda[j].nomeCompleto[indexLetraDiferente] > agenda[j + 1].nomeCompleto[indexLetraDiferente])
             {
                 trocarRegistros(&agenda[j], &agenda[j + 1]);
             }
@@ -56,22 +60,28 @@ void ordenarNome(contato_t* agenda, int quantidadeRegistros)
 
 void ordenarData(contato_t* agenda, int quantidadeRegistros)
 {
+    /* Aplicando Bubble Sort, critério: data de nascimento */
     for(int i = 0; i < quantidadeRegistros; ++i)
     {
         for(int j = 0; j < quantidadeRegistros - 1 - i; ++j)
         {
+            /* Se o ano do registro "j" for maior que do "j + 1", trocar registros */
             if(agenda[j].dataNascimento.ano > agenda[j + 1].dataNascimento.ano)
             {
                 trocarRegistros(&agenda[j], &agenda[j + 1]);
             }
+            /* Se os anos forem iguais, comparamos os meses */
             else if(agenda[j].dataNascimento.ano == agenda[j + 1].dataNascimento.ano)
             {
+                /* Se o mês do registro "j" for maior que do "j + 1", trocar registros */
                 if(agenda[j].dataNascimento.mes > agenda[j + 1].dataNascimento.mes)
                 {
                     trocarRegistros(&agenda[j], &agenda[j + 1]);
                 }
+                /* Se os meses forem iguais, comparar os dias */
                 else if(agenda[j].dataNascimento.mes == agenda[j + 1].dataNascimento.mes)
                 {
+                    /* Se o dia do registro "j" for maior que do "j + 1", trocar registros */
                     if(agenda[j].dataNascimento.dia > agenda[j + 1].dataNascimento.dia)
                     {
                         trocarRegistros(&agenda[j], &agenda[j + 1]);
@@ -84,6 +94,7 @@ void ordenarData(contato_t* agenda, int quantidadeRegistros)
 
 void ordenarGrupo(contato_t* agenda, int quantidadeRegistros)
 {
+    /* Aplicando Bubble Sort, critério: grupo */
     for(int i = 0; i < quantidadeRegistros; ++i)
     {
         for(int j = 0; j < quantidadeRegistros - 1 - i; ++j)
