@@ -11,13 +11,14 @@ int menu()
     int opcao;
 
     printf("1) Importa Registros de um Arquivo\n");
-    printf("2) Cadastra novo Registro\n");
+    printf("2) Cadastrar novo Registro\n");
     printf("3) Editar Registro\n");
     printf("4) Excluir Registro\n");
     printf("5) Buscar Registro\n");
-    printf("6) Ordenar Registro\n");
-    printf("7) Agrupar Registro\n");
-    printf("8) Exportar Registros para um arquivo de saída\n");
+    printf("6) Ordenar Registros\n");
+    printf("7) Agrupar Registros\n");
+    printf("8) Printar Registros\n");
+    printf("9) Exportar Registros para Arquivo de Saída\n");
     printf("0) Sair\n");
     printf("----------------------------\n\n\n");
 
@@ -164,11 +165,6 @@ void excluirRegistro(contato_t* agenda, int quantidadeRegistros)
     agenda[posicaoRegistro].excluido = TRUE;
 }
 
-void ordenarRegistros(contato_t* agenda, int quantidadeRegistros)
-{
-    return;
-}
-
 void agruparRegistros(contato_t* agenda, int quantidadeRegistros)
 {
     return;
@@ -194,11 +190,21 @@ void printarRegistro(contato_t* agenda, int posicaoRegistro)
         printf("\tFutebol: %.2f\n", agenda[posicaoRegistro].esportes.futebol);
         printf("\tBasquete: %.2f\n", agenda[posicaoRegistro].esportes.basquete);
         printf("\tVôlei: %.2f\n", agenda[posicaoRegistro].esportes.volei);
-        printf("Grupo: %d\n\n\n", agenda[posicaoRegistro].grupo);
+        printf("Grupo: %d\n", agenda[posicaoRegistro].grupo);
+
+        printf("---------------------------------------------------\n\n");
     }
     else
     {
         printf("%s foi excluído da sua agenda recentemente!\n\n\n", agenda[posicaoRegistro].nomeCompleto);
+    }
+}
+
+void printarTodosRegistros(contato_t* agenda, int quantidadeRegistros)
+{
+    for(int i = 0; i < quantidadeRegistros; ++i)
+    {
+        printarRegistro(agenda, i);
     }
 }
 

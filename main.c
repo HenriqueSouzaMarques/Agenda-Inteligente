@@ -5,6 +5,7 @@
 #include "Includes/utils.h"
 #include "Includes/edicao.h"
 #include "Includes/buscas.h"
+#include "Includes/ordenacao.h"
 
 int main()
 {
@@ -47,11 +48,15 @@ int main()
             case 7:
                 agruparRegistros(agenda, quantidadeRegistros);
                 break;
-
-            case 8:
-                exportarRegistros(agenda, quantidadeRegistros);
+            
+            case 8: 
+                printarTodosRegistros(agenda, quantidadeRegistros);
                 break;
 
+            case 9:
+                exportarRegistros(agenda, quantidadeRegistros);
+                break;
+                
             case 0:
                 printf("Obrigado por usar o programa!\n");
                 free(agenda);
