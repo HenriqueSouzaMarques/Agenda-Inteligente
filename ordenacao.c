@@ -39,15 +39,12 @@ void ordenarNome(contato_t* agenda, int quantidadeRegistros)
         {
             indexLetraDiferente = 0;
 
-            if(strcmp(agenda[j].nomeCompleto, agenda[j + 1].nomeCompleto) != 0)
+            /* While loop para encontrar a primeira letra diferente */
+            while(agenda[j].nomeCompleto[indexLetraDiferente] == agenda[j + 1].nomeCompleto[indexLetraDiferente])
             {
-                /* While loop para encontrar a primeira letra diferente */
-                while(agenda[j].nomeCompleto[indexLetraDiferente] == agenda[j + 1].nomeCompleto[indexLetraDiferente])
-                {
-                    indexLetraDiferente++;
-                }
-            }       
-
+                indexLetraDiferente++;
+            }
+                   
             /* Se a primeira letra que difere do registro "j" for menor 
              * que do registro "j + 1" (tabela ASCII), trocar registros */
             if(agenda[j].nomeCompleto[indexLetraDiferente] > agenda[j + 1].nomeCompleto[indexLetraDiferente])
@@ -66,7 +63,7 @@ void ordenarData(contato_t* agenda, int quantidadeRegistros)
         for(int j = 0; j < quantidadeRegistros - 1 - i; ++j)
         {
             /* Se o ano do registro "j" for maior que do "j + 1", trocar registros */
-            if(agenda[j].dataNascimento.ano > agenda[j + 1].dataNascimento.ano)
+            if(agenda[j].dataNascimento.ano < agenda[j + 1].dataNascimento.ano)
             {
                 trocarRegistros(&agenda[j], &agenda[j + 1]);
             }
@@ -74,7 +71,7 @@ void ordenarData(contato_t* agenda, int quantidadeRegistros)
             else if(agenda[j].dataNascimento.ano == agenda[j + 1].dataNascimento.ano)
             {
                 /* Se o mês do registro "j" for maior que do "j + 1", trocar registros */
-                if(agenda[j].dataNascimento.mes > agenda[j + 1].dataNascimento.mes)
+                if(agenda[j].dataNascimento.mes < agenda[j + 1].dataNascimento.mes)
                 {
                     trocarRegistros(&agenda[j], &agenda[j + 1]);
                 }
@@ -82,7 +79,7 @@ void ordenarData(contato_t* agenda, int quantidadeRegistros)
                 else if(agenda[j].dataNascimento.mes == agenda[j + 1].dataNascimento.mes)
                 {
                     /* Se o dia do registro "j" for maior que do "j + 1", trocar registros */
-                    if(agenda[j].dataNascimento.dia > agenda[j + 1].dataNascimento.dia)
+                    if(agenda[j].dataNascimento.dia < agenda[j + 1].dataNascimento.dia)
                     {
                         trocarRegistros(&agenda[j], &agenda[j + 1]);
                     }
