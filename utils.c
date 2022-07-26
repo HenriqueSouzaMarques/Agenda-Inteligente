@@ -195,10 +195,6 @@ void printarRegistro(contato_t* agenda, int posicaoRegistro)
 
         printf("---------------------------------------------------\n\n");
     }
-    else
-    {
-        printf("%s foi excluído da sua agenda recentemente!\n\n\n", agenda[posicaoRegistro].nomeCompleto);
-    }
 }
 
 void printarTodosRegistros(contato_t* agenda, int quantidadeRegistros)
