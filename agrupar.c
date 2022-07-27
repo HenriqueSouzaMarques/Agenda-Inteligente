@@ -47,9 +47,9 @@ int grupoMenorDistancia(contato_t* const agenda, int* quantidadeGrupos, int regi
 
     /* Criando um grupo caso a menor distancia euclidiana seja maior que o LIMIAR */
     if(menorDistanciaEuclidiana >= LIMIAR){
-        *quantidadeGrupos = *quantidadeGrupos + 1;
         lideresGrupos[*quantidadeGrupos] = registroAnalisado;
         grupoMenorDistancia = *quantidadeGrupos;
+        *quantidadeGrupos = *quantidadeGrupos + 1;
     }
 
     return grupoMenorDistancia;
@@ -61,6 +61,7 @@ float distanciaEuclidiana(contato_t* const agenda, int posicaoLider, int registr
     distanciaEuclidiana += pow(agenda[posicaoLider].esportes.basquete - agenda[registroAnalisado].esportes.basquete,2); 
     distanciaEuclidiana += pow(agenda[posicaoLider].esportes.volei - agenda[registroAnalisado].esportes.volei,2); 
     distanciaEuclidiana = sqrt(distanciaEuclidiana);
+    printf("D: %f\n", distanciaEuclidiana);
 
     return distanciaEuclidiana;
 }
