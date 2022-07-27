@@ -166,11 +166,6 @@ void excluirRegistro(contato_t* agenda, int quantidadeRegistros)
     agenda[posicaoRegistro].excluido = TRUE;
 }
 
-void agruparRegistros(contato_t* agenda, int quantidadeRegistros)
-{
-    return;
-}
-
 /* Printa um registro em formatação adequada */
 void printarRegistro(contato_t* agenda, int posicaoRegistro)
 {
