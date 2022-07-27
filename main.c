@@ -6,6 +6,7 @@
 #include "Includes/edicao.h"
 #include "Includes/buscas.h"
 #include "Includes/ordenacao.h"
+#include "Includes/agrupar.h"
 
 int main()
 {
