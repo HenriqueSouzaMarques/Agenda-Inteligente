@@ -56,7 +56,7 @@ int grupoMenorDistancia(contato_t* const agenda, int* quantidadeGrupos, int regi
 }
 
 float distanciaEuclidiana(contato_t* const agenda, int posicaoLider, int registroAnalisado){
-    float distanciaEuclidiana = 0;ç;
+    float distanciaEuclidiana = 0;
     distanciaEuclidiana += pow(agenda[posicaoLider].esportes.futebol - agenda[registroAnalisado].esportes.futebol,2); 
     distanciaEuclidiana += pow(agenda[posicaoLider].esportes.basquete - agenda[registroAnalisado].esportes.basquete,2); 
     distanciaEuclidiana += pow(agenda[posicaoLider].esportes.volei - agenda[registroAnalisado].esportes.volei,2); 
