@@ -80,7 +80,30 @@ int buscarData(contato_t* const agenda, int quantidadeRegistros)
 
 int buscarGrupo(contato_t* const agenda, int quantidadeRegistros)
 {
-    return -1;
+    int grupo;
+    int aux = 0;
+    
+    printf(" Digite o Grupo: ");
+    scanf("%d", &grupo);
+
+    int *pertencemGrupo = (int *) malloc(quantidadeRegistros * sizeof(int));
+    if(pertencemGrupo == NULL){
+        printf("Erro ao encontrar registros do grupo :(\n");
+        return -1;
+    }
+
+    for(int i = 0; i < quantidadeRegistros; ++i)
+        pertencemGrupo[i] = -1;
+
+    for(int i = 0; i < quantidadeRegistros; ++i){
+        if(agenda[i].grupo == grupo){
+            pertencemGrupo[aux] = i;
+            ++aux;
+        }
+    }
+
+    return 0;
+    //return *pertencemGrupo;
 }
 
 int menuBusca()
