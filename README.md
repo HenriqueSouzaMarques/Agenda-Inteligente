@@ -1,6 +1,9 @@
 # Agenda Inteligente
 Trabalho 2 -- Introdução a Ciências de Computação I (ICMC/USP)
 
+#### Henrique Souza Marques -- 11815722
+#### Lucas Lombardi Castro -- 13672978
+
 A confecção deste trabalho visa solidificar os conhecimentos adquiridos no semestre sobre alocação dinâmica, manipulação de arquivos binários e structs na linguagem C. Sendo assim, desenvolvemos uma lista de contatos inteligente, capaz de:
 
 #### 1. Importar contatos de arquivo binário
