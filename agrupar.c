@@ -14,7 +14,7 @@ void agruparRegistros(contato_t* agenda, int quantidadeRegistros){
     
     /* Percorrendo todos os contatos e os inserindo em um grupo ou criando um grupo novo */
     for(int i = 0; i < quantidadeRegistros; ++i)
-        agenda[i].grupo = grupoMenorDistancia(agenda, &quantidadeGrupos, i, lideresGrupos);
+        agenda[i].grupo = (grupoMenorDistancia(agenda, &quantidadeGrupos, i, lideresGrupos) + 1);
 
     free(lideresGrupos);
 }
@@ -61,7 +61,6 @@ float distanciaEuclidiana(contato_t* const agenda, int posicaoLider, int registr
     distanciaEuclidiana += pow(agenda[posicaoLider].esportes.basquete - agenda[registroAnalisado].esportes.basquete,2); 
     distanciaEuclidiana += pow(agenda[posicaoLider].esportes.volei - agenda[registroAnalisado].esportes.volei,2); 
     distanciaEuclidiana = sqrt(distanciaEuclidiana);
-    printf("D: %f\n", distanciaEuclidiana);
 
     return distanciaEuclidiana;
 }

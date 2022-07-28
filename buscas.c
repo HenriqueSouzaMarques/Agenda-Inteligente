@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "Includes/buscas.h"
+#include "Includes/utils.h"
 
 /* Busca um registro pelo seu: (i) Nome; (ii) Data de Nascimento ou (iii) Grupo */
 int buscarRegistro(contato_t* const agenda, int quantidadeRegistros)
@@ -83,17 +84,15 @@ int buscarGrupo(contato_t* const agenda, int quantidadeRegistros)
     int grupo;
     int aux = 0;
     
-    printf(" Digite o Grupo: ");
+    printf("Digite o Grupo: ");
     scanf("%d", &grupo);
+    printf("Oi");
 
     int *pertencemGrupo = (int *) malloc(quantidadeRegistros * sizeof(int));
     if(pertencemGrupo == NULL){
         printf("Erro ao encontrar registros do grupo :(\n");
         return -1;
     }
-
-    for(int i = 0; i < quantidadeRegistros; ++i)
-        pertencemGrupo[i] = -1;
 
     for(int i = 0; i < quantidadeRegistros; ++i){
         if(agenda[i].grupo == grupo){
@@ -102,8 +101,13 @@ int buscarGrupo(contato_t* const agenda, int quantidadeRegistros)
         }
     }
 
-    return 0;
-    //return *pertencemGrupo;
+    if(aux == 0)
+        return -1;
+
+    for(int i = 0; i < aux - 1; ++i)
+        printarRegistro(agenda, pertencemGrupo[i]);
+
+    return pertencemGrupo[aux - 1];
 }
 
 int menuBusca()

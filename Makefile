@@ -6,7 +6,7 @@ agendaInteligente: main.c Includes/utils.h utils.o Includes/buscas.h buscas.o In
 utils.o: utils.c Includes/utils.h Includes/contato.h
 	gcc -c utils.c
 
-buscas.o: buscas.c Includes/buscas.h
+buscas.o: buscas.c Includes/buscas.h Includes/utils.h
 	gcc -c buscas.c
 
 edicao.o: edicao.c Includes/edicao.h buscas.o Includes/contato.h
