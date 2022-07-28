@@ -86,7 +86,6 @@ int buscarGrupo(contato_t* const agenda, int quantidadeRegistros)
     
     printf("Digite o Grupo: ");
     scanf("%d", &grupo);
-    printf("Oi");
 
     int *pertencemGrupo = (int *) malloc(quantidadeRegistros * sizeof(int));
     if(pertencemGrupo == NULL){
